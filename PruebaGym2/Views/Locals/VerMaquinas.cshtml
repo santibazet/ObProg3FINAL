@@ -1,0 +1,110 @@
+﻿@model PruebaGym2.Models.MaquinasDeLocalViewModel
+
+@{
+    ViewData["Title"] = "Máquinas del Local";
+}
+
+<h1 class="mb-5">Máquinas del Local "@Model.NombreLocal"</h1>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Tipo Máquina</th>
+            <th>Cantidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MaquinasPorTipo)
+        {
+            <tr>
+                <td>@item.NombreTipo</td>
+                <td>@item.Cantidad</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="btn-container">
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>
+
+<style>
+
+    /* Estilos para la tabla */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+
+        .table th,
+        .table td {
+            padding: 10px; /* Aumentar el espacio alrededor del contenido */
+            border: 1px solid #ddd; /* Borde sólido con color gris claro */
+        }
+
+        .table th {
+            font-weight: bold; /* Texto en negrita para los títulos */
+            text-align: center; /* Alineación centrada para los títulos */
+            background-color: #343a40; /* Color de fondo oscuro para los títulos */
+            color: #fff; /* Color de texto blanco para los títulos */
+        }
+
+        .table td {
+            text-align: left; /* Alineación izquierda para celdas de datos */
+            text-align: center; /* Alineación centrada para los títulos */
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f9f9f9; /* Color de fondo alternativo para filas pares */
+        }
+
+    .table-hover tbody tr {
+        transition: background-color 0.8s ease; /* Transición más suave durante 0.8 segundos */
+    }
+
+        .table-hover tbody tr:hover {
+            background-color: #ddd; /* Color de fondo más claro al hacer hover */
+        }
+
+    .table-bordered {
+        border: 2px solid #ddd; /* Borde más grueso con color gris claro */
+    }
+
+    .table-hover {
+        cursor: pointer; /* Cambia el cursor al hacer hover sobre la tabla */
+    }
+
+    .btn {
+        border: none;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+        .btn-container .btn {
+            margin: 0 10px;
+        }
+
+    .btn-secondary {
+        background-color: #2196F3; /* Azul */
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        font-size: 18px;
+    }
+
+
+        .btn-secondary:hover {
+            background-color: #333; /* Gris oscuro */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.1);
+        }
+
+        .btn-secondary:active {
+            background-color: #555; /* Gris más oscuro al hacer clic */
+        }
+
+</style>

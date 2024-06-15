@@ -1,0 +1,63 @@
+﻿@model PruebaGym2.Models.SociosViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="~/css/indexSocios.css">
+
+
+<h1 class="text-center" style="font-size: 60px; margin: 10px;">Administrar socios</h1>
+
+
+<form asp-action="Index" method="get" class="form-inline align-items-center mb-4">
+    <h3 class="mr-3">Filtrar socios por tipo</h3>
+    <div class="form-group mr-3">
+        <label asp-for="TipoSocio" class="control-label mr-2">Seleccione el tipo de socio</label>
+        <select asp-for="TipoSocio" asp-items="Model.TiposDeSocios" class="form-control mr-2" onchange="this.form.submit()">
+        </select>
+    </div>
+</form>
+
+<p class="text-center" style="margin-bottom: 80px">
+    <a asp-action="Create" class="btn btn-primary" style="font-size: 20px">Crear un nuevo socio</a>
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Socios.FirstOrDefault().NombreSocio)</th>
+            <th>@Html.DisplayNameFor(model => model.Socios.FirstOrDefault().TipoSocio)</th>
+            <th>@Html.DisplayNameFor(model => model.Socios.FirstOrDefault().Telefono)</th>
+            <th>@Html.DisplayNameFor(model => model.Socios.FirstOrDefault().Mail)</th>
+            <th>@Html.DisplayNameFor(model => model.Socios.FirstOrDefault().Local.Nombre)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Socios)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.NombreSocio)</td>
+                <td>@Html.DisplayFor(modelItem => item.TipoSocio)</td>
+                <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                <td>@Html.DisplayFor(modelItem => item.Mail)</td>
+                <td>@Html.DisplayFor(modelItem => item.Local.Nombre)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdSocio" class="btn btn-primary">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.IdSocio" class="btn btn-secondary">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdSocio" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .form-control:hover,
+    .form-control:focus {
+        border-color: #333; /* Cambia el color del borde al hacer hover o al estar enfocado */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Agrega sombra al hacer hover o al estar enfocado */
+        outline: none; /* Elimina el contorno de enfoque */
+    }
+</style>

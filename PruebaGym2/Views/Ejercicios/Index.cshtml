@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PruebaGym2.Models.Ejercicio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="~/css/indexEjercicios.css">
+
+
+<h1 class="text-center" style="font-size: 60px; margin: 10px;">Administrar ejercicios</h1>
+
+<p class="text-center" style="margin-bottom: 80px">
+    <a asp-action="Create" class="btn btn-primary" style="font-size: 20px">Crear un nuevo ejercicio</a>
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreEjercicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionEjercicio)
+            </th>
+            <th>
+                Máquina utilizada
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreEjercicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescripcionEjercicio)
+                </td>
+                <td>
+                    @(item.TipoMaquina != null ? item.TipoMaquina.NombreTipo : "No lleva máquina")
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdEjercicio" class="btn btn-primary">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.IdEjercicio" class="btn btn-secondary">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdEjercicio" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

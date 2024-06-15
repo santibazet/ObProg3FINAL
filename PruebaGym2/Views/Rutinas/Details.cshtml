@@ -1,0 +1,86 @@
+﻿@model PruebaGym2.Models.Rutina
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h1 class="card-title">Detalles de la Rutina</h1>
+        </div>
+        <div class="card-body">
+            <h4 class="card-subtitle mb-3">Información de la Rutina</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Descripcion)
+                </dd>
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.TipoRutina)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.TipoRutina)
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer text-center">
+            <div class="btn-container">
+                <a asp-action="Edit" asp-route-id="@Model.IdRutina" class="btn btn-primary mx-2">Editar</a>
+                <a asp-action="Index" class="btn btn-secondary mx-2">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .btn {
+        border: none;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+        .btn-container .btn {
+            margin: 0 10px;
+        }
+
+    .btn-primary {
+        background-color: #4CAF50; /* Verde */
+    }
+
+    .btn-secondary {
+        background-color: #2196F3; /* Azul */
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        font-size: 18px;
+    }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            background-color: #333; /* Gris oscuro */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.1);
+        }
+
+        .btn-primary:active,
+        .btn-secondary:active {
+            background-color: #555; /* Gris más oscuro al hacer clic */
+        }
+</style>

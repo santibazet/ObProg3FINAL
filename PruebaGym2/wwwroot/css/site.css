@@ -1,0 +1,57 @@
+/* Ajuste del tamaño base del texto */
+html {
+    font-size: 14px;
+}
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Estilo para el efecto de foco en los elementos */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Ajustes de posición y margen para el contenido */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+
+/* Efecto de hover con agrandamiento */
+.nav-link {
+    position: relative;
+    color: #343a40; /* Color base del texto */
+    transition: color 0.4s, text-shadow 0.4s, transform 0.4s; /* Agregamos transform */
+}
+
+    .nav-link:hover {
+        color: #f0a942;
+        text-shadow: 0 0 20px rgba(240, 169, 66, 0.7), 0 0 40px rgba(240, 169, 66, 0.5); /* Sombreado más intenso */
+        transform: scale(1.1); /* Agrandamiento al hacer hover */
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        height: 2px;
+        background: linear-gradient(to right, transparent, #f0a942, transparent);
+        opacity: 0;
+        transition: opacity 0.2s; /* Reducimos la duración de la transición del destello */
+    }
+
+    .nav-link:hover::after {
+        opacity: 1;
+    }
+

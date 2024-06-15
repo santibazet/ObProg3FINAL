@@ -1,0 +1,128 @@
+﻿@model PruebaGym2.Models.Responsable
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="center">
+    <div class="col-md-4 form-container">
+        <h1 class="text-center">Editar responsable</h1>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="idResponsable" />
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefono" class="control-label"></label>
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center">
+                <div class="btn-container">
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    /* Copiar y pegar los estilos de Create */
+    .btn {
+        border: none;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh; /* Ajusta la altura si es necesario */
+    }
+
+    .form-container {
+        margin-bottom: 20px; /* Espaciado entre el formulario y los botones */
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        margin-top: 20px; /* Espaciado desde el borde superior */
+    }
+
+        .btn-container .btn {
+            margin: 0 10px; /* Espacio entre los botones */
+        }
+
+    .btn-primary {
+        background-color: #4CAF50; /* Verde */
+    }
+
+    .btn-secondary {
+        background-color: #2196F3; /* Verde */
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        font-size: 18px;
+    }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            background-color: #333; /* Gris oscuro */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra al hacer hover */
+            transform: scale(1.1);
+        }
+
+        .btn-primary:active,
+        .btn-secondary:active {
+            background-color: #555; /* Gris más oscuro al hacer clic */
+        }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group select {
+        transition: border-color 0.3s, box-shadow 0.3s; /* Agrega transición a los campos */
+        border: 1px solid #ccc; /* Borde sólido gris */
+        border-radius: 5px; /* Borde redondeado */
+        padding: 5px 10px; /* Espaciado interno */
+        width: 100%; /* Ancho completo */
+    }
+
+        .form-group input[type="text"]:hover,
+        .form-group input[type="number"]:hover,
+        .form-group select:hover {
+            border-color: #333; /* Cambia el color del borde al hacer hover */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Agrega sombra al hacer hover */
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="number"]:focus,
+        .form-group select:focus {
+            outline: none; /* Elimina el contorno de enfoque */
+            border-color: #333; /* Cambia el color del borde cuando está enfocado */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Agrega sombra alrededor del campo cuando está enfocado */
+        }
+
+        /* Elimina el contorno azul predeterminado al hacer clic */
+        .form-group input[type="text"]:focus,
+        .form-group input[type="number"]:focus,
+        .form-group select:focus,
+        .form-group input[type="text"]:active,
+        .form-group input[type="number"]:active,
+        .form-group select:active {
+            border-color: #333;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+</style>

@@ -1,0 +1,89 @@
+﻿@model PruebaGym2.Models.Responsable
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h1 class="card-title">Eliminar Responsable</h1>
+        </div>
+        <div class="card-body">
+            <h3>¿Estás seguro que quieres eliminar este responsable?</h3>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Nombre)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Telefono)
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer text-center">
+            <div class="btn-container">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="idResponsable" />
+                    <input type="submit" value="Eliminar" class="btn btn-danger" />
+                </form>
+                <a asp-action="Index" class="btn btn-secondary">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .btn {
+        border: none;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+        .btn-container .btn {
+            margin: 0 10px;
+        }
+
+    .btn-danger {
+        background-color: #F44336; /* Rojo */
+    }
+
+    .btn-secondary {
+        background-color: #2196F3; /* Azul */
+    }
+
+    .btn-danger,
+    .btn-secondary {
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        font-size: 18px;
+    }
+
+        .btn-danger:hover,
+        .btn-secondary:hover {
+            background-color: #333; /* Gris oscuro */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.1);
+        }
+
+        .btn-danger:active,
+        .btn-secondary:active {
+            background-color: #555; /* Gris más oscuro al hacer clic */
+        }
+</style>

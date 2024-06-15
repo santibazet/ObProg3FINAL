@@ -1,0 +1,65 @@
+﻿@model IEnumerable<PruebaGym2.Models.Local>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="~/css/indexLocals.css">
+
+<h1 class="text-center" style="font-size: 60px; margin: 10px;">Administrar locales</h1>
+
+<p class="text-center" style="margin-bottom: 80px">
+    <a asp-action="Create" class="btn btn-primary" style="font-size: 20px">Crear un nuevo local</a>
+</p>
+
+
+<table class="table table-hover ">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ciudad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Responsable)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ciudad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Responsable.Nombre)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdLocal" class="btn btn-primary">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.IdLocal" class="btn btn-secondary">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdLocal" class="btn btn-danger">Eliminar</a>
+                    <a asp-action="VerMaquinas" asp-route-id="@item.IdLocal" class="btn btn-info">Ver Maquinas</a> 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

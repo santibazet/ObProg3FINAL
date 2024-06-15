@@ -1,0 +1,114 @@
+﻿/* Estilos para los botones */
+.btn {
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 4px; /* Agregar margen a la derecha */
+    color: #fff;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    border: none; /* Elimina el contorno predeterminado */
+}
+
+.btn-primary {
+    background-color: #4CAF50; /* Verde */
+}
+
+    .btn-primary:hover {
+        background-color: #333; /* Gris oscuro */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra al hacer hover */
+        transform: scale(1.1);
+    }
+
+    .btn-primary:active {
+        background-color: #555; /* Gris más oscuro al hacer clic */
+    }
+
+.btn-secondary {
+    background-color: #2196F3; /* Azul */
+}
+
+    .btn-secondary:hover {
+        background-color: #333; /* Gris oscuro */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra al hacer hover */
+        transform: scale(1.1);
+    }
+
+    .btn-secondary:active {
+        background-color: #555; /* Gris más oscuro al hacer clic */
+    }
+
+.btn-danger {
+    background-color: #F44336; /* Rojo */
+}
+
+    .btn-danger:hover {
+        background-color: #333; /* Gris oscuro */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra al hacer hover */
+        transform: scale(1.1);
+    }
+
+    .btn-danger:active {
+        background-color: #555; /* Gris más oscuro al hacer clic */
+    }
+
+.btn-info {
+    background-color: #FFC107; /* Amarillo */
+    color: #fff; /* Color de texto blanco */
+}
+
+    .btn-info:hover {
+        background-color: #333; /* Gris oscuro */
+        color: #fff; /* Color de texto blanco al hacer hover */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra al hacer hover */
+        transform: scale(1.1);
+    }
+
+    .btn-info:active {
+        background-color: #555; /* Gris más oscuro al hacer clic */
+    }
+
+/* Estilos para la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+    .table th,
+    .table td {
+        padding: 10px; /* Aumentar el espacio alrededor del contenido */
+        border: 1px solid #ddd; /* Borde sólido con color gris claro */
+    }
+
+    .table th {
+        font-weight: bold; /* Texto en negrita para los títulos */
+        text-align: center; /* Alineación centrada para los títulos */
+        background-color: #343a40; /* Color de fondo oscuro para los títulos */
+        color: #fff; /* Color de texto blanco para los títulos */
+    }
+
+    .table td {
+        text-align: left; /* Alineación izquierda para celdas de datos */
+        text-align: center; /* Alineación centrada para los títulos */
+    }
+
+    .table tr:nth-child(even) {
+        background-color: #f9f9f9; /* Color de fondo alternativo para filas pares */
+    }
+
+.table-hover tbody tr {
+    transition: background-color 0.8s ease; /* Transición más suave durante 0.8 segundos */
+}
+
+    .table-hover tbody tr:hover {
+        background-color: #ddd; /* Color de fondo más claro al hacer hover */
+    }
+
+.table-bordered {
+    border: 2px solid #ddd; /* Borde más grueso con color gris claro */
+}
+
+.table-hover {
+    cursor: pointer; /* Cambia el cursor al hacer hover sobre la tabla */
+}
+

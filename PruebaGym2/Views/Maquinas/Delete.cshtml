@@ -1,0 +1,120 @@
+﻿@model PruebaGym2.Models.Maquina
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h1 class="card-title">Eliminar Máquina</h1>
+        </div>
+        <div class="card-body">
+            <h3>¿Estás seguro que quieres eliminar esta máquina?</h3>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FechaCompra)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FechaCompra)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PrecioCompra)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PrecioCompra) pesos
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.VidaUtil)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.VidaUtil)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Disponible)
+                </dt>
+                <dd class="col-sm-10">
+                    @if (Model.Disponible)
+                    {
+                        <text>Disponible</text>
+                    }
+                    else
+                    {
+                        <text>No disponible</text>
+                    }
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Local)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Local.Nombre)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IdTipoMaquina)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.TipoMaquina.NombreTipo)
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer text-center">
+            <div class="btn-container">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="IdMaquina" />
+                    <input type="submit" value="Eliminar" class="btn btn-danger" />
+                </form>
+                <a asp-action="Index" class="btn btn-secondary">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .btn {
+        border: none;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+        .btn-container .btn {
+            margin: 0 10px;
+        }
+
+    .btn-danger {
+        background-color: #F44336; /* Rojo */
+    }
+
+    .btn-secondary {
+        background-color: #2196F3; /* Azul */
+    }
+
+    .btn-danger,
+    .btn-secondary {
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        font-size: 18px;
+    }
+
+        .btn-danger:hover,
+        .btn-secondary:hover {
+            background-color: #333; /* Gris oscuro */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.1);
+        }
+
+        .btn-danger:active,
+        .btn-secondary:active {
+            background-color: #555; /* Gris más oscuro al hacer clic */
+        }
+</style>

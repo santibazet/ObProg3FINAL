@@ -1,0 +1,83 @@
+﻿@model IEnumerable<PruebaGym2.Models.Rutina>
+
+@{
+    ViewData["Title"] = "Ver Rutinas y Ejercicios";
+}
+
+<h1 class="text-center mb-5">Ver rutinas y sus ejercicios</h1>
+@foreach (var rutina in Model)
+{
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h2 class="card-title">@rutina.Descripcion</h2>
+            </div>
+            <div class="card-body">
+                <ul>
+                    @foreach (var rutinaEjercicio in rutina.RutinaEjercicios)
+                    {
+                        <li>
+                            <span class="font-weight-bold">@rutinaEjercicio.Ejercicio.NombreEjercicio:</span>
+                            @rutinaEjercicio.Sets sets,
+                            @rutinaEjercicio.Repeticiones repeticiones.
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="btn-container m-5">
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</div>
+
+
+<style>
+    .card {
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+
+    .card-header {
+        background-color: #343a40; /* Color de fondo oscuro para los encabezados */
+        color: #fff; /* Color de texto blanco para los encabezados */
+    }
+
+    .card-title {
+        margin: 0; /* Eliminar el margen superior e inferior */
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .btn {
+        border: none;
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        font-size: 18px;
+    }
+
+    .btn-secondary {
+        background-color: #2196F3; /* Azul */
+        color: #fff; /* Color de texto blanco */
+        margin: 0 10px;
+    }
+
+        .btn-secondary:hover {
+            background-color: #333; /* Gris oscuro */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.1);
+        }
+
+        .btn-secondary:active {
+            background-color: #555; /* Gris más oscuro al hacer clic */
+        }
+</style>

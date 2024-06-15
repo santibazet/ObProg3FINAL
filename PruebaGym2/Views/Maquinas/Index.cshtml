@@ -1,0 +1,77 @@
+﻿@model PruebaGym2.Models.MaquinasPorOrdenModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<link rel="stylesheet" href="~/css/indexMaquinas.css">
+
+<h1 class="text-center" style="font-size: 60px; margin: 10px;">Administrar máquinas</h1>
+
+
+<form asp-action="Index" method="get" class="form-inline align-items-center mb-4">
+    <h3 class="mr-3">Filtrar y ordenar máquinas</h3>
+    <div class="form-group mr-3">
+        <label asp-for="LocalId" class="control-label mr-2">Por local</label>
+        <select asp-for="LocalId" asp-items="Model.LocalList" class="form-control" onchange="this.form.submit()">
+            <option value="">Todos los locales</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="TipoOrden" class="control-label mr-2">Por fecha</label>
+        <select asp-for="TipoOrden" asp-items="Model.OrdenList" class="form-control" onchange="this.form.submit()"></select>
+    </div>
+</form>
+
+<p class="text-center" style="margin-bottom: 80px">
+    <a asp-action="Create" class="btn btn-primary" style="font-size: 20px">Crear una nueva máquina</a>
+</p>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Maquinas.First().FechaCompra)</th>
+            <th>@Html.DisplayNameFor(model => model.Maquinas.First().PrecioCompra)</th>
+            <th>@Html.DisplayNameFor(model => model.Maquinas.First().VidaUtil)</th>
+            <th>@Html.DisplayNameFor(model => model.Maquinas.First().Disponible)</th>
+            <th>@Html.DisplayNameFor(model => model.Maquinas.First().Local)</th>
+            <th>@Html.DisplayNameFor(model => model.Maquinas.First().TipoMaquina.NombreTipo)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Maquinas)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.FechaCompra)</td>
+                <td>@Html.DisplayFor(modelItem => item.PrecioCompra)</td>
+                <td>@Html.DisplayFor(modelItem => item.VidaUtil)</td>
+                <td>@(item.Disponible ? "Disponible" : "No disponible")</td>
+                <td>@Html.DisplayFor(modelItem => item.Local.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.TipoMaquina.NombreTipo)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdMaquina" class="btn btn-primary">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.IdMaquina" class="btn btn-secondary">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdMaquina" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .form-group select.form-control:hover {
+        border-color: #333; /* Cambia el color del borde al hacer hover */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Agrega sombra al hacer hover */
+    }
+
+    /* Elimina el contorno azul predeterminado al hacer clic */
+    .form-group select.form-control:focus,
+    .form-group select.form-control:active {
+        border-color: #333;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        outline: none; /* Elimina el contorno de enfoque */
+    }
+</style>
