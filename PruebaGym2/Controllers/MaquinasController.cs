@@ -156,8 +156,6 @@ namespace PruebaGym2.Controllers
                              })
                              .ToList();
 
-                // Lógica adicional si es necesario
-
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdLocal"] = new SelectList(_context.Locales, "IdLocal", "Ciudad", maquina.IdLocal);

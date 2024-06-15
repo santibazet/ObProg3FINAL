@@ -20,7 +20,7 @@ namespace PruebaGym2.Controllers
         public async Task<IActionResult> Index()
         {
             var rutinas = await _context.Rutinas
-                .Include(r => r.SocioRutinas) // Incluir las relaciones con SocioRutinas
+                .Include(r => r.SocioRutinas)
                 .ToListAsync();
 
             foreach (var rutina in rutinas)

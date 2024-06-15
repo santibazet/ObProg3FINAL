@@ -37,7 +37,7 @@ public class AccountController : Controller
             return View();
         }
 
-        // Aquí, puedes redirigir al usuario a la página principal después de iniciar sesión correctamente
+        // Redirigir al usuario a la página principal después de iniciar sesión correctamente
         return RedirectToAction("Index", "Home");
     }
 
